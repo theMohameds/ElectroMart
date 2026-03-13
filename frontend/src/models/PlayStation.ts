@@ -1,21 +1,6 @@
-import { ProductType } from "./ProductType";
+import { Product } from './Product';
+import { ProductType } from './ProductType';
 
-export class PlayStation {
-  public title: string;
-  public imageUrl: string;
-  public basePrice: number;
-  public taxRate: number = 1.25;
-
-  public discountRate: number = 0.10;
+export class PlayStation extends Product {
   public productType: ProductType = ProductType.PlayStation;
-
-  constructor(title: string, imageUrl: string, basePrice: number) {
-    this.title = title;
-    this.imageUrl = imageUrl;
-    this.basePrice = basePrice;
-  }
-
-  public getPrice(): number {
-    return Math.round((this.basePrice * (1 - this.discountRate)) * this.taxRate);
-  }
 }

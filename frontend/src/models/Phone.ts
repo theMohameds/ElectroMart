@@ -5,7 +5,7 @@ export class Phone {
   public imageUrl: string;
   public basePrice: number;
   public taxRate: number = 1.25;
-  public discountRate: number = 0.15;
+  public discountRate: number = 0.10;
   public productType: ProductType = ProductType.Phone;
 
   constructor(title: string, imageUrl: string, basePrice: number) {

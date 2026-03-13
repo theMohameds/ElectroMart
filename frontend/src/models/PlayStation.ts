@@ -6,7 +6,7 @@ export class PlayStation {
   public basePrice: number;
   public taxRate: number = 1.25;
 
-  public discountRate: number = 0.15;
+  public discountRate: number = 0.10;
   public productType: ProductType = ProductType.PlayStation;
 
   constructor(title: string, imageUrl: string, basePrice: number) {

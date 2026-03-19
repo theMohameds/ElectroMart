@@ -1,8 +1,9 @@
 import express, { Request, Response } from 'express';
 import { recommendedProducts } from './dummyData';
+import { config } from './config';
 
 const app = express();
-const port = 3001;
+const port = config.port; // Exercise 2: port sourced from environment variable
 const cors = require('cors');
 app.use(cors());
 

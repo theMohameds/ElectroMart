@@ -1,12 +1,14 @@
 import { ProductType } from "./ProductType";
+import { config } from "../config";
 
 export abstract class Product {
     public title: string;
     public imageUrl: string;
     public basePrice: number;
 
-    public taxRate: number = 1.25;
-    public discountRate: number = 0.10;
+    // Exercise 2: values sourced from environment variables via config.ts
+    public taxRate: number = config.taxRate;
+    public discountRate: number = config.discountRate;
 
     public abstract productType: ProductType;
 

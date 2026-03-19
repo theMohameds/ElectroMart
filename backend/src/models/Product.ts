@@ -6,7 +6,7 @@ export abstract class Product {
     public imageUrl: string;
     public basePrice: number;
 
-    // Exercise 2: values sourced from environment variables via config.ts
+    // values sourced from environment variables via config.ts
     public taxRate: number = config.taxRate;
     public discountRate: number = config.discountRate;
 

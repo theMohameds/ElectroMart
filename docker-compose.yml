@@ -7,11 +7,24 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - express-api
+      - nginx
 
+  # Exercise 5: backend no longer exposes a port directly — traffic goes through nginx
   express-api:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    # No host-port binding; only reachable inside the Docker network
+
+  # Exercise 5: nginx load balancer — exposes port 3001 to the host and
+  # round-robins across however many express-api replicas are running.
+  # Start multiple replicas with:  docker compose up --scale express-api=3
+  nginx:
+    image: nginx:alpine
     ports:
-      - "3001:3001"
+      - "3001:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - express-api
+    restart: unless-stopped

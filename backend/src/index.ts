@@ -33,7 +33,13 @@ app.get("/get-products-by-category", (req: Request, res: Response) => {
   return res.json(products);
 });
 
+// Exercise 3: Feature flag
+// Toggle FEATURE_UNFINISHED_ENABLED=true|false in .env to enable/disable
+// the endpoint without redeploying code.
 app.get("/unfinished-feature", (_: Request, res: Response) => {
+  if (!config.featureUnfinishedEnabled) {
+    return res.status(404).send('This feature is not yet available.');
+  }
   // Oh no, this feature is not ready for production!
   return res.status(500).send('Internal Server Error');
 });

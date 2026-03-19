@@ -12,4 +12,7 @@ export const config = {
   taxRate: parseFloat(process.env.TAX_RATE ?? '1.25'),
   discountRate: parseFloat(process.env.DISCOUNT_RATE ?? '0.10'),
   port: parseInt(process.env.PORT ?? '3001'),
+
+  // Exercise 3: Feature flag — set FEATURE_UNFINISHED_ENABLED=true in .env to expose the endpoint
+  featureUnfinishedEnabled: process.env.FEATURE_UNFINISHED_ENABLED === 'true',
 };
